@@ -26,7 +26,7 @@ def home():
 		'json present': os.path.exists("static/json/scores.json")
 	}
 	respObj = {
-		'homeReply': "Hi World"
+		'homeReply': "Hi World if vercel allows this deployment. Cause they kept pushing old braches from their cache."
 	}
 	print(f"home called. What is home actually? { request }. and script vars: { jsonify(xmlVars) }")
 	respObj['xmlVars']= xmlVars
