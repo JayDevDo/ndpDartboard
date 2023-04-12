@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<script type="text/javascript" src="{{ url_for('static', filename='d3.min.js') }}" ></script>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='dbData.js') }}" ></script>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='dbCreate.js') }}" ></script>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='scoresAsJS.js') }}" ></script>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='ndp.js') }}" ></script>
+
+</head>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width={{ data['ndp']['dim'] }}">
+	<meta name="viewport" content="initial-scale=1">
+	<title id="pgTtl">nested dabo</title>
+</head>
+
+<style type="text/css">
+#dabo{
+	background-color: #4c4c4c;
+}
+
+#trgtInfo{
+	background: transparent;
+	display: none;	
+}
+#msgCenter{
+	background: transparent;
+	display: none;	
+}
+#dataDisplay{
+	background: transparent;
+	display: none;	
+}
+
+</style>
+
+<body id="dabo">
+	<div class="item3" id="mySVGdartBoard" ></div>
+		
+	<div>
+		<div id="trgtInfo"></div>
+		<div id="msgCenter" ></div>
+		<div id=dataDisplay>
+	</div>
+
+</body>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', (event) => { 
+		createDartBoard({{ data['ndp']['dim'] }});
+		if( !jsonSegArr ){ 
+			console.log("getting segArray")
+			jsonSegArr = dbJson() }
+		// console.log( "jsonSegArr len:\t", jsonSegArr );		
+		getNDPData("{{ data['dart']['sb'] }}")
+	});
+</script>
+
+</html>
+
+	<!-- table>
+
+		<tr>	
+			<td>
+
+			</td>
+
+			<td>
+
+				<div>
+					<b>
+						Dart #
+					</b>
+					<i>
+						{{ data['dart']['dnit'] }}
+					</i>
+				</div>
+
+				<div>
+					<b>
+						SB
+					</b>
+					<i>
+						{{ data['dart']['sb'] }}
+					</i>
+				</div>
+
+
+				<div>
+					<b>
+						SB (dn)
+					</b>
+					<i>
+						{{ data['dart']['dn'][0] }}
+					</i>
+				</div>
+
+				<div>
+					<b>
+						Score 
+					</b>
+					<i>
+						{{ data['dart']['sc'] }}
+					</i>
+				</div>
+
+				<div>
+					<b>
+						Seg
+					</b>
+					<i>
+						{{ data['dart']['sg'] }}
+					</i>	
+				</div>
+
+				<div>
+					<b>
+						SA
+					</b>
+					<i>
+						{{ data['dart']['sa'] }}
+					</i>
+				</div>
+
+				<div>
+					<b>
+						SA (dn)
+					</b>
+					<i>
+						{{ data['dart']['dn'][1] }}
+					</i>
+				</div>
+
+				</div>
+
+			</td>
+
+		</tr>
+	</table -->
+	
+	<!--
+		[
+			{
+				"ndp": 
+					{
+						"sb": 121, "sa": 121, "sc": 0, 
+						"segs": ["DNT", "DNT", "DNT"], 
+						"dnit": 0, 
+						"dih": 3, 
+						"dim": 300, 
+						"loc": "finDartsGUI/src/boardserver"
+					}, 
+				"darts": [
+					{"dnit": 0, "sb": 121, "sa": 121, "sc": 0, "seg": "DNT"}, 
+					{"dnit": 1, "sb": 121, "sa": 121, "sc": 0, "seg": "DNT"}, 
+					{"dnit": 2, "sb": 121, "sa": 121, "sc": 0, "seg": "DNT"},
+					{"dnit": 3, "sb": 121, "sa": 121, "sc": 0, "seg": "DNT"}
+				]
+			}
+		]
+
+		[
+			{
+				"ndp": {
+					"sb": 121, "sa": 121, "sc": 0, 
+					"segs": ["DNT", "DNT", "DNT"], 
+					"dnit": 0, 
+					"dih": 3, 
+					"dim": 300, 
+					"loc": "finDartsGUI/src/boardserver"
+				}, 
+				"darts": [
+					{"dnit": 0, "sb": 121, "sa": 121, "sc": 0, "seg": "DNT"}, 
+					{"dnit": 1, "sb": 121, "sa": 121, "sc": 0, "seg": "DNT"}, 
+					{"dnit": 2, "sb": 121, "sa": 121, "sc": 0, "seg": "DNT"}, 
+					{"dnit": 3, "sb": 121, "sa": 121, "sc": 0, "seg": "DNT"}
+				]
+			}
+		]
+			<h3 id="status">status {{ data }}</h3>
+
+	-->
