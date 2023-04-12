@@ -3,10 +3,6 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from flask import Flask, render_template, send_file, request, jsonify
 
- 
-from http.server import BaseHTTPRequestHandler
-
-
 xmlSourcePath 	= "static/parts/xml/"
 xmlTemplName 	= "dartBoardSvgSource.xml"
 inputFileName 	= xmlSourcePath + xmlTemplName 
