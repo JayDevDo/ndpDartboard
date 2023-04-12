@@ -38,4 +38,4 @@ def home():
 
 @app.route('/about')
 def about():
-	return '<h1>ABOUT</h1>'
+	return '<h1>ABOUT</h1><h2>test fase</h2><a src="http://ndpdartboard-jaydevdo.vercel.app/">see it work</a>'
